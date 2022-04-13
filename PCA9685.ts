@@ -78,7 +78,7 @@ namespace Servo {
         i2cwrite(PCA9685_ADDRESS, MODE1, oldmode | 0xa1);
     }
 
-    function setPwm(channel: number, on: number, off: number): void {
+    export function setPwm(channel: number, on: number, off: number): void {
         if (channel < 0 || channel > 15)
             return;
 
