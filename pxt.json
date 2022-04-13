@@ -10,7 +10,8 @@
         "main.ts",
         "README.md",
         "PCA9685.ts",
-        "lcd.ts"
+        "lcd.ts",
+        "74HC165.ts"
     ],
     "testFiles": [
         "test.ts"
