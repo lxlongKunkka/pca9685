@@ -1551,9 +1551,9 @@ namespace LCD1IN8 {
     //写8位数据
     function LCD_WriteData_8Bit(Data: number): void {
         pins.digitalWritePin(LCD_DC, 1);
-        //Servo.setPwm(7, 0, 0);
+        Servo.setPwm(7, 0, 0);
         pins.spiWrite(Data);
-        //Servo.setPwm(7, 0, 4095);
+        Servo.setPwm(7, 0, 4095);
     }
 
     //写len个16位数据
