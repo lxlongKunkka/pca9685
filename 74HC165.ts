@@ -26,7 +26,9 @@ namespace SimpleShieldKey {
         for (i = 0; i < 8; i++) {
             val = val << 1;
             pins.digitalWritePin(SR_CLK, 0);
+            Servo.SetLED(2, false);
             pins.digitalWritePin(SR_CLK, 1);
+            Servo.SetLED(2, true);
             let tmp = pins.digitalReadPin(INSR0_DATA);
             val |= tmp;
         }
