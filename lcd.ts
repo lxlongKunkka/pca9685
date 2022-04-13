@@ -1543,29 +1543,29 @@ namespace LCD1IN8 {
     //写寄存器
     function LCD_WriteReg(reg: number): void {
         pins.digitalWritePin(LCD_DC, 0);
-        //pins.digitalWritePin(LCD_CS, 0);
+        Servo.setPwm(7, 0, 0);
         pins.spiWrite(reg);
-        //pins.digitalWritePin(LCD_CS, 1);
+        Servo.setPwm(7, 0, 4095);
     }
 
     //写8位数据
     function LCD_WriteData_8Bit(Data: number): void {
         pins.digitalWritePin(LCD_DC, 1);
-        //pins.digitalWritePin(LCD_CS, 0);
+        Servo.setPwm(7, 0, 0);
         pins.spiWrite(Data);
-        //pins.digitalWritePin(LCD_CS, 1);
+        Servo.setPwm(7, 0, 4095);
     }
 
     //写len个16位数据
     function LCD_WriteData_Buf(Buf: number, len: number): void {
         pins.digitalWritePin(LCD_DC, 1);
-        //pins.digitalWritePin(LCD_CS, 0);
+        Servo.setPwm(7, 0, 0);
         let i = 0;
         for (i = 0; i < len; i++) {
             pins.spiWrite((Buf >> 8));
             pins.spiWrite((Buf & 0XFF));
         }
-        //pins.digitalWritePin(LCD_CS, 1);
+        Servo.setPwm(7, 0, 4095);
     }
 
     //选中区域
