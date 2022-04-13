@@ -92,6 +92,28 @@ namespace Servo {
     }
 
     /**
+     * set LED 
+     * 
+     */
+    //% blockId=setLED block="Set LED|%led|degree %state"
+    //% weight=85
+    //% led.min=1 led.max=2
+    export function SetLED(led: number, state: boolean): void
+    {
+        if (!initialized) {
+            initPCA9685();
+        }
+        if(state)
+        {
+            setPwm(led+9, 0, 4095);
+        }
+        else
+        {
+            setPwm(led + 9, 0, 0);
+        }
+    }
+
+    /**
      * Servo Execute
      * @param degree [0-180] degree of servo; eg: 90, 0, 180
     */
