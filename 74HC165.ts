@@ -20,14 +20,12 @@ namespace SimpleShieldKey {
         let val = 0;
         Servo.setPwm(9, 0, 0);
         //pins.digitalWritePin(INSR_LATCH, 0);    //scan
-        control.waitMicros(2000);
         Servo.setPwm(9, 0, 4095);
         //pins.digitalWritePin(INSR_LATCH, 1);
         let i = 0;
         for (i = 0; i < 8; i++) {
             val = val << 1;
             pins.digitalWritePin(SR_CLK, 0);
-            control.waitMicros(2000);
             pins.digitalWritePin(SR_CLK, 1);
             let tmp = pins.digitalReadPin(INSR0_DATA);
             val |= tmp;
@@ -40,7 +38,6 @@ namespace SimpleShieldKey {
     //% weight=90
     export function Listen_Key(pin: KEY): boolean {
         let val = Read74HC165();
-        basic.showNumber(val)
         let res = 1;
         switch (pin) {
             case KEY.UP:
