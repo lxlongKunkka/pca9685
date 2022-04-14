@@ -20,8 +20,8 @@ namespace SimpleShieldKey {
         let val = 0;
         Servo.setPwm(9, 0, 0);
         //pins.digitalWritePin(INSR_LATCH, 0);    //scan
-        //control.waitMicros(1000000);
-        basic.pause(10);
+        control.waitMicros(2000000);
+        //basic.pause(10);
         Servo.setPwm(9, 0, 4095);
         //control.waitMicros(1000000);
         //pins.digitalWritePin(INSR_LATCH, 1);
