@@ -18,12 +18,11 @@ enum KEY {
 namespace SimpleShieldKey {
     function Read74HC165(): number {
         let val = 0;
-
-        //pins.digitalWritePin(INSR_LATCH, 0);    //scan
         Servo.setPwm(9, 0, 0);
-        control.waitMicros(100000);
-        //pins.digitalWritePin(INSR_LATCH, 1);
+        //pins.digitalWritePin(INSR_LATCH, 0);    //scan
+        control.waitMicros(10000);
         Servo.setPwm(9, 0, 4095);
+        //pins.digitalWritePin(INSR_LATCH, 1);
         let i = 0;
         for (i = 0; i < 8; i++) {
             //basic.showNumber(i);
@@ -34,9 +33,9 @@ namespace SimpleShieldKey {
             val |= tmp;
             //control.waitMicros(1000);
             pins.digitalWritePin(SR_CLK, 0);
-            control.waitMicros(1000);
+            //control.waitMicros(1000);
             pins.digitalWritePin(SR_CLK, 1);
-            control.waitMicros(1000);
+            //control.waitMicros(1000);
         }
         //basic.showNumber(val);
         //control.waitMicros(2000000);
