@@ -21,7 +21,7 @@ namespace SimpleShieldKey {
 
         //pins.digitalWritePin(INSR_LATCH, 0);    //scan
         Servo.setPwm(9, 0, 0);
-        control.waitMicros(10000);
+        control.waitMicros(100000);
         //pins.digitalWritePin(INSR_LATCH, 1);
         Servo.setPwm(9, 0, 4095);
         let i = 0;
