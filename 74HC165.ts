@@ -31,7 +31,15 @@ namespace SimpleShieldKey {
             control.waitMicros(1000000);
             val = val << 1;
             let tmp = pins.digitalReadPin(INSR0_DATA);
-            basic.showNumber(tmp);
+            if(tmp)
+            {
+                basic.showArrow(ArrowNames.North);
+            }
+            else
+            {
+                basic.showArrow(ArrowNames.South);
+            }
+            //basic.showNumber(tmp);
             val |= tmp;
             control.waitMicros(1000000);
             pins.digitalWritePin(SR_CLK, 0);
