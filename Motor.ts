@@ -15,7 +15,7 @@ enum Motors {
     //% block="M2"
     M2 = 0x2,
 }
-//% weight=20 color=#3333ff icon="\uf11b"
+//% weight=20 color=#3333ff icon="\uf113"
 namespace Motor {
     
     //% blockId=Motor block="Motor|%index|speed %speed"

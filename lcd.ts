@@ -1403,7 +1403,7 @@ pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
 pins.spiFormat(8, 0)
 pins.spiFrequency(18000000)
 
-let LCD_RST = DigitalPin.P16;
+//let LCD_RST = DigitalPin.P16;
 let LCD_DC = DigitalPin.P8;
 
 //% weight=20 color=#436EEE icon="\uf108"
