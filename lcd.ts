@@ -1415,11 +1415,14 @@ namespace LCD1IN8 {
     export function LCD_Init(): void {
         Servo.setPwm(7, 0, 0);
         control.waitMicros(1000);
-        pins.digitalWritePin(LCD_RST, 1);
+        //pins.digitalWritePin(LCD_RST, 1);
+        Servo.setPwm(0, 0, 4095);
         control.waitMicros(1000);
-        pins.digitalWritePin(LCD_RST, 0);
+        Servo.setPwm(0, 0, 0);
+        //pins.digitalWritePin(LCD_RST, 0);
         control.waitMicros(1000);
-        pins.digitalWritePin(LCD_RST, 1);
+        Servo.setPwm(0, 0, 4095);
+        //pins.digitalWritePin(LCD_RST, 1);
 
         //ST7735R Frame Rate
         LCD_WriteReg(0xB1);
