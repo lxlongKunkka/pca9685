@@ -11,7 +11,8 @@
         "README.md",
         "PCA9685.ts",
         "lcd.ts",
-        "74HC165.ts"
+        "74HC165.ts",
+        "Motor.ts"
     ],
     "testFiles": [
         "test.ts"
