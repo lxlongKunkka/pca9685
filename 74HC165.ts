@@ -35,9 +35,9 @@ namespace SimpleShieldKey {
             val |= tmp;
             control.waitMicros(1000000);
             pins.digitalWritePin(SR_CLK, 0);
-            control.waitMicros(1000);
+            control.waitMicros(1000000);
             pins.digitalWritePin(SR_CLK, 1);
-            control.waitMicros(1000);
+            control.waitMicros(1000000);
         }
         basic.showNumber(val);
         control.waitMicros(2000000);
