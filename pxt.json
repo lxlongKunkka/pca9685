@@ -12,7 +12,8 @@
         "PCA9685.ts",
         "lcd.ts",
         "74HC165.ts",
-        "Motor.ts"
+        "Motor.ts",
+        "bh1750.ts"
     ],
     "testFiles": [
         "test.ts"
