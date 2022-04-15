@@ -11,8 +11,12 @@ enum KEY {
     RIGHT,
     A,
     B,
-    MENU
-}
+    MENU,
+    IN1,
+    IN2,
+    IN3,
+    IN4
+};
 
 //% weight=20 color=#3333ff icon="\uf11b"
 namespace SimpleShieldKey {
@@ -26,7 +30,7 @@ namespace SimpleShieldKey {
         //control.waitMicros(1000000);
         pins.digitalWritePin(INSR_LATCH, 1);
         let i = 0;
-        for (i = 0; i < 8; i++) {
+        for (i = 0; i < 16; i++) {
             //basic.showNumber(i);
             //control.waitMicros(1000000);
             val = val << 1;
@@ -62,25 +66,37 @@ namespace SimpleShieldKey {
         let res = 1;
         switch (pin) {
             case KEY.UP:
-                res = (val >> 1) & 0x01;
+                res = (val >> 1 + 8) & 0x01;
                 break;
             case KEY.DOWN:
-                res = (val >> 2) & 0x01;
+                res = (val >> 2 + 8) & 0x01;
                 break;
             case KEY.LEFT:
-                res = (val >> 0) & 0x01;
+                res = (val >> 0 + 8) & 0x01;
                 break;
             case KEY.RIGHT:
-                res = (val >> 3) & 0x01;
+                res = (val >> 3 + 8) & 0x01;
                 break;
             case KEY.A:
-                res = (val >> 4) & 0x01;
+                res = (val >> 4 + 8) & 0x01;
                 break;
             case KEY.B:
-                res = (val >> 5) & 0x01;
+                res = (val >> 5 + 8) & 0x01;
                 break;
             case KEY.MENU:
-                res = (val >> 6) & 0x01;
+                res = (val >> 6 + 8) & 0x01;
+                break;
+            case KEY.IN1:
+                res = (val >> 3) & 0x01;
+                break;
+            case KEY.IN2:
+                res = (val >> 2) & 0x01;
+                break;
+            case KEY.IN3:
+                res = (val >> 1) & 0x01;
+                break;
+            case KEY.IN4:
+                res = (val >> 0) & 0x01;
                 break;
             default:
                 break;
