@@ -96,22 +96,42 @@ namespace Servo {
         pins.i2cWriteBuffer(PCA9685_ADDRESS, buf);
     }
 
-    export function FullOn(channel: number): void
-    {
+    /**
+     * Full On
+     *
+     */
+    //% blockId=setPWM block="Set pin|%channel ON "
+    //% weight=85
+    export function FullOn(channel: number): void {
         if (channel < 0 || channel > 15)
             return;
 
-        let reg = LED0_ON_L + 4 * channel + 1;
-        i2cwrite(PCA9685_ADDRESS, reg, 0x10);
+        let buf = pins.createBuffer(5);
+        buf[0] = LED0_ON_L + 4 * channel;
+        buf[1] = 0x00;
+        buf[2] = 0x10;
+        buf[3] = 0x00;
+        buf[4] = 0x00;
+        pins.i2cWriteBuffer(PCA9685_ADDRESS, buf);
     }
 
-    export function FullOff(channel: number): void
-    {
+    /**
+     * Full Off
+     *
+     */
+    //% blockId=setPWM block="Set pin|%channel Off "
+    //% weight=85
+    export function FullOff(channel: number): void {
         if (channel < 0 || channel > 15)
             return;
 
-        let reg = LED0_ON_L + 4 * channel + 3;
-        i2cwrite(PCA9685_ADDRESS, reg, 0x10);
+        let buf = pins.createBuffer(5);
+        buf[0] = LED0_ON_L + 4 * channel;
+        buf[1] = 0x00;
+        buf[2] = 0x00;
+        buf[3] = 0x00;
+        buf[4] = 0x10;
+        pins.i2cWriteBuffer(PCA9685_ADDRESS, buf);
     }
 
     /**
@@ -121,17 +141,14 @@ namespace Servo {
     //% blockId=setLED block="Set LED|%led|degree %state"
     //% weight=85
     //% led.min=1 led.max=2
-    export function SetLED(led: number, state: boolean): void
-    {
+    export function SetLED(led: number, state: boolean): void {
         if (!initialized) {
             initPCA9685();
         }
-        if(state)
-        {
-            setPwm(led+9, 0, 4095);
+        if (state) {
+            setPwm(led + 9, 0, 4095);
         }
-        else
-        {
+        else {
             setPwm(led + 9, 0, 0);
         }
     }
