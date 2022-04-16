@@ -22,11 +22,11 @@ enum KEY {
 namespace SimpleShieldKey {
     function Read74HC165(): number {
         let val = 0;
-        Servo.FullOff(0);
+        Servo.FullOff(15);
         //pins.digitalWritePin(INSR_LATCH, 0);    //scan
         control.waitMicros(10000);
         //basic.pause(10);
-        Servo.FullOn(0);
+        Servo.FullOn(15);
         //control.waitMicros(1000000);
         //pins.digitalWritePin(INSR_LATCH, 1);
         let i = 0;
