@@ -2,7 +2,7 @@
 
 let SR_CLK = DigitalPin.P16;
 let INSR0_DATA = DigitalPin.P12;        //data
-let INSR_LATCH = DigitalPin.P9;         //PL
+//let INSR_LATCH = DigitalPin.P9;         //PL
 
 enum KEY {
     UP = 0,
@@ -22,13 +22,13 @@ enum KEY {
 namespace SimpleShieldKey {
     function Read74HC165(): number {
         let val = 0;
-        //Servo.setPwm(9, 0, 0);
-        pins.digitalWritePin(INSR_LATCH, 0);    //scan
-        //control.waitMicros(1000000);
+        Servo.FullOff(0);
+        //pins.digitalWritePin(INSR_LATCH, 0);    //scan
+        control.waitMicros(10000);
         //basic.pause(10);
-        //Servo.setPwm(9, 0, 4095);
+        Servo.FullOn(0);
         //control.waitMicros(1000000);
-        pins.digitalWritePin(INSR_LATCH, 1);
+        //pins.digitalWritePin(INSR_LATCH, 1);
         let i = 0;
         for (i = 0; i < 16; i++) {
             //basic.showNumber(i);
@@ -48,8 +48,11 @@ namespace SimpleShieldKey {
             //basic.showNumber(tmp);
             val |= tmp;
             //control.waitMicros(1000000);
+            //Servo.setPwm(15, 0, 0);
             pins.digitalWritePin(SR_CLK, 0);
-            //control.waitMicros(1000000);
+            //control.waitMicros(10000);
+            //Servo.setPwm(15, 0, 4095);
+            control.waitMicros(10000);
             pins.digitalWritePin(SR_CLK, 1);
             //control.waitMicros(1000000);
         }

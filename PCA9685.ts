@@ -96,6 +96,24 @@ namespace Servo {
         pins.i2cWriteBuffer(PCA9685_ADDRESS, buf);
     }
 
+    export function FullOn(channel: number): void
+    {
+        if (channel < 0 || channel > 15)
+            return;
+
+        let reg = LED0_ON_L + 4 * channel + 1;
+        i2cwrite(PCA9685_ADDRESS, reg, 0x10);
+    }
+
+    export function FullOff(channel: number): void
+    {
+        if (channel < 0 || channel > 15)
+            return;
+
+        let reg = LED0_ON_L + 4 * channel + 3;
+        i2cwrite(PCA9685_ADDRESS, reg, 0x10);
+    }
+
     /**
      * set LED 
      * 
