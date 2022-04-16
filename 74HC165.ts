@@ -23,10 +23,12 @@ namespace SimpleShieldKey {
     function Read74HC165(): number {
         let val = 0;
         Servo.FullOff(15);
+        Servo.SetLED(2, false);
         //pins.digitalWritePin(INSR_LATCH, 0);    //scan
         control.waitMicros(10000);
         //basic.pause(10);
         Servo.FullOn(15);
+        Servo.SetLED(2, true);
         //control.waitMicros(1000000);
         //pins.digitalWritePin(INSR_LATCH, 1);
         let i = 0;
