@@ -1413,7 +1413,7 @@ namespace LCD1IN8 {
     //% block="LCD1IN8 Init"
     //% weight=200
     export function LCD_Init(): void {
-        Servo.setPwm(7, 0, 0);
+        Servo.FullOff(7);
         control.waitMicros(1000);
         //pins.digitalWritePin(LCD_RST, 1);
         Servo.setPwm(0, 0, 4095);
@@ -1547,9 +1547,11 @@ namespace LCD1IN8 {
     function LCD_WriteReg(reg: number): void {
         pins.digitalWritePin(LCD_DC, 0);
         //Servo.setPwm(7, 0, 0);
+        //Servo.FullOff(7);
         Servo.SetLED(1, false);
         pins.spiWrite(reg);
         //Servo.setPwm(7, 0, 4095);
+        //Servo.FullOn(7);
         Servo.SetLED(1, true);
     }
 
