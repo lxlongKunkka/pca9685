@@ -25,7 +25,7 @@ namespace SimpleShieldKey {
         Servo.FullOff(15);
         Servo.SetLED(2, false);
         pins.digitalWritePin(INSR_LATCH, 0);    //scan
-        control.waitMicros(1000);
+        control.waitMicros(20000);
         //basic.pause(10);
         Servo.FullOn(15);
         Servo.SetLED(2, true);

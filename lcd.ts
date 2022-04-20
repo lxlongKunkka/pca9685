@@ -1416,12 +1416,15 @@ namespace LCD1IN8 {
         Servo.FullOff(7);
         control.waitMicros(1000);
         //pins.digitalWritePin(LCD_RST, 1);
-        Servo.setPwm(0, 0, 4095);
+        Servo.FullOn(0);
+        //Servo.setPwm(0, 0, 4095);
         control.waitMicros(1000);
-        Servo.setPwm(0, 0, 0);
+        //Servo.setPwm(0, 0, 0);
+        //Servo.FullOff(0);
         //pins.digitalWritePin(LCD_RST, 0);
         control.waitMicros(1000);
-        Servo.setPwm(0, 0, 4095);
+        //Servo.FullOn(0);
+        //Servo.setPwm(0, 0, 4095);
         //pins.digitalWritePin(LCD_RST, 1);
 
         //ST7735R Frame Rate
